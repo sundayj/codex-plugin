@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>com.codex.plugin</id>
+    <name>Codex Plugin</name>
+    <version>0.1.0</version>
+    <vendor url="https://codex.example.com">Codex</vendor>
+    <description><![CDATA[
+        Integrates the Codex CLI into JetBrains IDEs. Provides actions for generating commit descriptions,
+        reviewing pull requests, and interactive code generation with a pause-and-resume flow. Configure the
+        CLI path under <b>Settings/Preferences | Tools | Codex</b>.
+    ]]></description>
+    <idea-version since-build="233"/>
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.codex.plugin.CodexSettingsState"/>
+        <configurable instance="com.codex.plugin.CodexSettingsConfigurable" displayName="Codex" id="com.codex.plugin.settings" parentId="tools"/>
+    </extensions>
+
+    <actions>
+        <action id="com.codex.plugin.GenerateCommitDescription" class="com.codex.plugin.actions.CodexGenerateCommitDescriptionAction" text="Generate Commit Description"/>
+        <action id="com.codex.plugin.ReviewPullRequest" class="com.codex.plugin.actions.CodexReviewPRAction" text="Review Pull Request"/>
+        <action id="com.codex.plugin.CodeGeneration" class="com.codex.plugin.actions.CodexCodeGenerationAction" text="Codex Code Generation"/>
+    </actions>
+
+    <change-notes>Initial release.</change-notes>
+</idea-plugin>
