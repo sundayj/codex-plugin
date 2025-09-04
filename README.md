@@ -14,6 +14,7 @@ Integrates the open-source Codex CLI into JetBrains IDEs such as IntelliJ IDEA a
 - Java 17 or later
 - Codex CLI installed and available on your system `PATH`
 - JetBrains IDE 2023.3 or newer with the Git plugin enabled
+- Gradle 8.x (the IntelliJ Gradle plugin 1.17.4 is not compatible with Gradle 9)
 
 ## Building
 
@@ -28,7 +29,7 @@ gradle runIde
 gradle buildPlugin
 ```
 
-The repository includes Gradle wrapper scripts; you may substitute `./gradlew` for `gradle` if the wrapper JAR is present locally.
+The repository includes Gradle wrapper scripts without the wrapper JAR; generate it with `gradle wrapper --gradle-version 8.5` or use a local Gradle 8 installation.
 
 ## Installation
 
